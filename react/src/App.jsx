@@ -10,12 +10,11 @@ const App = () => {
   var user= {username:"viky",password:"123456"}
   return (
     <>
-    <div>{/*<Child name="kabesh" age="20"/><Child name="viky" age="26"/>
-    *<Home items={fruits} users={user}/>
-    *<Skills/>
-    *<Contact/>
-    *<Login users={user}/>
-    */}
+    <div><Child name="kabesh" age="20"/><Child name="viky" age="26"/>
+    <Home items={fruits} users={user}/>
+    <Skills/>
+    <Contact/>
+    <Login users={user}/>
     <Counter/></div>
     </>
   )
