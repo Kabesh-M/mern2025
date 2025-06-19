@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1 id="header" style="background-color:green;color:red;">Hello World</h1>
+        <button onclick="buttonClicked()" style="background-color:blue;color:aqua">change text</button>
+        <br><br><input type="text" id="name">
+        <button onclick="addName()">Add</button>
+        <ul id="list"></ul>
+        <script>
+            var addName=()=>{
+                var data=document.getElementById("name").value;
+                var li=document.createElement("li");
+                li.innerText=data;
+                document.getElementById("list").append(li);
+            }
+            var buttonClicked= ()=>{
+                var head=document.getElementById("header");
+                head.innerHTML=="Hello Kongu"?head.style="background-color:green;color:red;":head.style="background-color:red;color:green;";
+                head.innerHTML=head.innerHTML==="Hello Kongu"?"Hello World":"Hello Kongu";
+            }
+        </script>
+    </body>
+</html>
