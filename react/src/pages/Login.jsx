@@ -1,33 +1,31 @@
 import React, { useState } from 'react';
-
-const Login = ({ users }) => {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [result, setResult] = useState('');
-
-  function login() {
-    if (name === users.username && password === users.password) {
-      setResult('login successful');
-    } else {
-      setResult('login failed');
-    }
+import './login.css'
+const Login = () => {
+  const [formData,setFormData]=useState({
+    email:'',
+    password:''
+  })
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    console.log(formData)
+    setFormData({
+    email:"",
+    password:""
+  })
   }
-
+  const handleChange=(e)=>{
+    setFormData((prev)=>({...prev,[e.target.name]:e.target.value}))
+  }
   return (
-    <div>
-      <h1>Login Form</h1>
-      <label htmlFor="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        placeholder="Enter name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      /><br/>
-      <label htmlFor="password">Password:</label>
-      <input type="password" id="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)}/><br/>
-      <button onClick={login}>login</button>
-      <h3>{result}</h3>
+    <div className='container'>
+      <form className='form' action="" onSubmit={handleSubmit}>
+      <h1>LOGIN</h1>
+      <label>Email:</label><br/>
+      <input type="email" name="email" placeholder="Enter Email id" value={formData.email} onChange={handleChange}/><br/>
+      <label>Password:</label><br />
+      <input type="password" name="password" placeholder="Enter password" value={formData.password} onChange={handleChange}/><br/>
+      <button type="submit">Login</button>
+      </form>
     </div>
   );
 };

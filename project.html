@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Volunteer Management</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Volunteer Management System</h1>
+  </header>
+
+  <div class="container">
+    <h2>Register a Volunteer</h2>
+    <form id="volunteerForm">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="interest">Area of Interest:</label>
+      <select id="interest" name="interest" required>
+        <option value="">--Select--</option>
+        <option value="Teaching">Teaching</option>
+        <option value="Fundraising">Fundraising</option>
+        <option value="Environment">Environment</option>
+        <option value="Event Management">Event Management</option>
+      </select>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <h2>Registered Volunteers</h2>
+    <table id="volunteerTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Interest</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Volunteer data will appear here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const form = document.getElementById('volunteerForm');
+    const tableBody = document.querySelector('#volunteerTable tbody');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = form.name.value;
+      const email = form.email.value;
+      const phone = form.phone.value;
+      const interest = form.interest.value;
+
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${name}</td>
+        <td>${email}</td>
+        <td>${phone}</td>
+        <td>${interest}</td>
+      `;
+      tableBody.appendChild(row);
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
