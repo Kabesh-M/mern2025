@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Counter from './components/Counter'
 import Navbar from './components/Navbar'
 import Hooks from './pages/Hooks'
+import Todo from './components/Todo'
 import State from './hooks/State'
 import Effect from './hooks/Effect'
 import Effect1 from './hooks/Effect1'
@@ -39,6 +40,7 @@ const App = () => {
       <Route path='/effect1' element={<Effect1/>}/>
       <Route path='/ref' element={<Ref/>}/>
       <Route path='/reducer' element={<Reducer/>}/>
+      <Route path="/todo" element={<Todo/>}/>
     </Routes>
     </div>
     </>
