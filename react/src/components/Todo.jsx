@@ -29,10 +29,11 @@ const Todo = () => {
         await axios.delete(`http://localhost:3000/todo/delete/${id}`);
         fetchTodo()
     }
-    const handleToggleStatus=async(todo)=>{
-        await axios.put(`http://localhost:3000/todo/edit/${editing._id}`,{status:!todo.status});
-        fetchTodo()
-    }
+    const handleToggleStatus = async (todo) => {
+    await axios.put(`http://localhost:3000/todo/edit/${todo._id}`,{status:!todo.status});
+    setEditing(null);
+    fetchTodo();
+};
   return (
     <div>
         <h1>Todos</h1>
